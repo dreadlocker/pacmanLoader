@@ -1,0 +1,92 @@
+html,
+body,
+#wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+#hide,
+#hide2 {
+  z-index: 1;
+  width: 60px;
+  height: 50px;
+  top: 30px;
+  position: relative;
+  background-color: black;
+}
+
+#hide2 {
+  right: 50px;
+}
+
+#wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#loader {
+  width: 300px;
+  border-top: 8px dotted #484848;
+  position: relative;
+  top: 30px;
+  animation: moveLeft 1s ease-in-out infinite;
+}
+
+#pacman::before,
+#pacman::after {
+  content: "";
+  border: 30px solid #bb3402;
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  position: absolute;
+  border-right-color: transparent;
+  z-index: 1;
+}
+
+#pacman::after {
+  animation: chompDown 1s ease-in-out infinite;
+}
+
+#pacman::before {
+  animation: chompUp 1s ease-in-out infinite;
+}
+
+@keyframes moveLeft {
+
+  0% {
+    transform: translateX(0px);
+  }
+
+  100% {
+    transform: translateX(-30px);
+  }
+}
+
+@keyframes chompDown {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(46deg);
+  }
+}
+
+@keyframes chompUp {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(-46deg);
+  }
+}
